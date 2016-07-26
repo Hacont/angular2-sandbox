@@ -3,27 +3,27 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-		<groupId>ch.koalix.koalix-000-1</groupId>
-        <artifactId>angular2_template-parent</artifactId>
+		<groupId>ch.koalix.sandbox</groupId>
+        <artifactId>angular2_sandbox-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>angular2_template-package</artifactId>
+    <artifactId>angular2_sandbox-package</artifactId>
 
     <packaging>war</packaging>
 
     <dependencies>
 
         <dependency>
-            <groupId>ch.koalix.koalix-000-1</groupId>
-            <artifactId>angular2_template-service</artifactId>
+            <groupId>ch.koalix.sandbox</groupId>
+            <artifactId>angular2_sandbox-service</artifactId>
             <type>ejb</type>
         </dependency>
         <dependency>
-            <groupId>ch.koalix.koalix-000-1</groupId>
-            <artifactId>angular2_template-web</artifactId>
+            <groupId>ch.koalix.sandbox</groupId>
+            <artifactId>angular2_sandbox-web</artifactId>
             <type>war</type>
         </dependency>
     </dependencies>
@@ -41,13 +41,13 @@
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
                     <modules>
                         <webModule>
-                            <groupId>ch.koalix.koalix-000-1</groupId>
-                            <artifactId>angular2_template-web</artifactId>
+                            <groupId>ch.koalix.sandbox</groupId>
+                            <artifactId>angular2_sandbox-web</artifactId>
                             <contextRoot>/</contextRoot>
                         </webModule>
                         <ejbModule>
-                            <groupId>ch.koalix.koalix-000-1</groupId>
-                            <artifactId>angular2_template-service</artifactId>
+                            <groupId>ch.koalix.sandbox</groupId>
+                            <artifactId>angular2_sandbox-service</artifactId>
                         </ejbModule>
                     </modules>
                 </configuration>
