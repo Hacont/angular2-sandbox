@@ -1,6 +1,4 @@
 export interface Account {
-    vin;
-    year;
-    brand;
-    color;
+    account_no;
+    description;
 }

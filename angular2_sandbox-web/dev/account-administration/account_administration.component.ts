@@ -13,32 +13,24 @@ import {AccountService} from './account_service';
     directives: [InputText,DataTable,Button,Dialog,Column,Header,Footer],
     providers: [HTTP_PROVIDERS, AccountService],
     template: `
-        <p-dataTable [value]="accounts" selectionMode="single" [(selection)]="selectedAccount" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="10" [responsive]="true">
-            <header>CRUD for Accounts</header>
-            <p-column field="vin" header="Vin" [sortable]="true"></p-column>
-            <p-column field="year" header="Year" [sortable]="true"></p-column>
-            <p-column field="brand" header="Brand" [sortable]="true"></p-column>
-            <p-column field="color" header="Color" [sortable]="true"></p-column>
-            <footer><div class="ui-helper-clearfix" style="width:100%"><button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Add"></button></div></footer>
+        <!-- Table -->
+        <p-dataTable [value]="accounts" selectionMode="single" [(selection)]="selectedAccount" (onRowSelect)="onRowSelect($event)" [paginator]="true" [rows]="20" [responsive]="true">
+            <header>Kontenplan</header>
+            <p-column field="account_no" header="Kontonummer" [sortable]="true"></p-column>
+            <p-column field="description" header="Beschreibung" [sortable]="true"></p-column>
+            <footer><div class="ui-helper-clearfix" style="width:100%"><button type="button" pButton icon="fa-plus" style="float:right" (click)="showDialogToAdd()" label="Konto hinzufügen"></button></div></footer>
         </p-dataTable>
         
+        <!-- Dialog -->
         <p-dialog header="Account Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
             <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad" *ngIf="account">
                 <div class="ui-grid-row">
-                    <div class="ui-grid-col-4"><label for="vin">Vin</label></div>
-                    <div class="ui-grid-col-8"><input pInputText id="vin" [(ngModel)]="account.vin" /></div>
+                    <div class="ui-grid-col-4"><label for="account_no">Kontonummer</label></div>
+                    <div class="ui-grid-col-8"><input pInputText id="account_no" [(ngModel)]="account.account_no" /></div>
                 </div>
                 <div class="ui-grid-row">
-                    <div class="ui-grid-col-4"><label for="brand">Year</label></div>
-                    <div class="ui-grid-col-8"><input pInputText id="brand" [(ngModel)]="account.year" /></div>
-                </div>
-                <div class="ui-grid-row">
-                    <div class="ui-grid-col-4"><label for="brand">Brand</label></div>
-                    <div class="ui-grid-col-8"><input pInputText id="brand" [(ngModel)]="account.brand" /></div>
-                </div>
-                <div class="ui-grid-row">
-                    <div class="ui-grid-col-4"><label for="color">Color</label></div>
-                    <div class="ui-grid-col-8"><input pInputText id="color" [(ngModel)]="account.color" /></div>
+                    <div class="ui-grid-col-4"><label for="brand">Konto</label></div>
+                    <div class="ui-grid-col-8"><input pInputText id="description" [(ngModel)]="account.description" /></div>
                 </div>
             </div>
             <footer>
@@ -67,7 +59,9 @@ export class AccountAdministration {
     constructor(private accountService: AccountService) { }
 
     ngOnInit() {
-        this.accountService.getAccounts().then(accounts => this.accounts = accounts);
+        this.accountService.getAccounts().subscribe(
+            data => this.accounts = data),
+            error => alert(error)
     }
 
     showDialogToAdd() {
@@ -112,6 +106,5 @@ export class AccountAdministration {
 }
 
 class PrimeAccount implements Account {
-
-    constructor(public vin?, public year?, public brand?, public color?) {}
+    constructor(public account_no?, public description?) {}
 }
