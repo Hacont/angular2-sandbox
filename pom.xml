@@ -15,7 +15,6 @@
     <modules>
         <module>angular2_sandbox-service</module>
         <module>angular2_sandbox-web</module>
-        <module>angular2_sandbox-package</module>
     </modules>
 
     <properties>
@@ -35,7 +34,7 @@
                 <groupId>ch.koalix.sandbox</groupId>
                 <artifactId>angular2_sandbox-service</artifactId>
                 <version>${project.version}</version>
-                <type>ejb</type>
+                <type>war</type>
             </dependency>
             <dependency>
                 <groupId>ch.koalix.sandbox</groupId>

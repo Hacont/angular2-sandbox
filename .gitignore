@@ -1,9 +1,9 @@
 target/
 .idea/
 /angular2_template-parent.iml
-/angular2_template-package/angular2_template-package.iml
-/angular2_template-service/angular2_template-service.iml
-/angular2_template-web/angular2_template-web.iml
+/angular2_template-package/angular2_sandbox-package.iml
+/angular2_template-service/angular2_sandbox-service.iml
+/angular2_template-web/angular2_sandbox-web.iml
 node_modules/
 typings/
 docs/
